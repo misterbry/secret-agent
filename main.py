@@ -2,15 +2,19 @@
 
 from time import sleep
 import os
-from playsound import playsound
+import pygame
 
 secret_message = "Renegade seagulls have been spotted in the upper yard. Exercise caution, DO NOT APPROACH."
 password = "password"
 program_is_running = True
-sounds = ['/audio/heal.wav', '/audio/sword.wav', '/audio/main.ogg', '/audio/death.wav']
+sounds = ['audio/heal.wav', 'audio/sword.wav', 'audio/main.ogg', 'audio/death.wav']
 
 def main():
     os.system("clear")
+    pygame.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load(sounds[2])
+    pygame.mixer.music.play()
     login()
     while program_is_running:
         passwd()
